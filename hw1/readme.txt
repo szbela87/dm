@@ -57,5 +57,12 @@ dm_hw1_bjszekeres_v4.ipynb
 I'll use the approach of 
 https://www.kaggle.com/pmarcelino/comprehensive-data-exploration-with-python
 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+dm_hw1_bjszekeres_v5.ipynb
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Original approach.
 
+`ExterCond_Po` is unnecessary. Its std is 0.0. Why???
+I have to check the whole notebook carefully from the beginning.
 
