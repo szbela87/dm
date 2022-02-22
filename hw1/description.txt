@@ -11,12 +11,20 @@ the first random forest was trained on the training set
 and the second one was trained on the output on
 the validation set by the first forest
 
++--------------------------+
+| score on kaggle: 0.14994 |
++--------------------------+
+
 2nd competition: submission_2nd_comp_2nd_trying.csv 
 ----------------
 stacked by ridge regression: 2 xgb, 1 ridge, 3 svm
 these models were trained on the training set and
 after that I concatted their outputs on the validation set,
 and then trained a ridge regression model on these outputs
+
++--------------------------+
+| score on kaggle: 0.12920 |
++--------------------------+
 
 other files:
 ------------
