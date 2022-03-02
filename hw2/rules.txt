@@ -1,0 +1,17 @@
+Competition rules
+
+Objective: predict the CARAVAN column of the evaluation data
+
+Models:
+	first competition: only random forests
+	second competition: any model
+
+Metric: balanced accuracy
+	= (TPR + TNR) / 2
+	(TPR = TP / (TP + FN),
+	TNR = TN = (TN + FP))
+	TP, FP, TN, FN are the number of true positives, false positives, true negatives, false negatives
+
+Submission format: .txt file, the nth row should be your prediction for the nth element of the test set; filename should be dm_competition2_[your_name]_submission[submission_number].txt. Pay attention to submit your predictions in the same order as they are in the test set. (ticeval2000.txt)
+
+You can submit one file for each competition.
