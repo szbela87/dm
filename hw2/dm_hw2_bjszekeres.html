@@ -16307,7 +16307,7 @@ while variables beginning with P and A (as well as CARAVAN, the target variable)
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[41]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_test</span> <span class="o">=</span> <span class="n">df_test</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#df_test = df_test.drop_duplicates()</span>
 </pre></div>
 
      </div>
@@ -16343,7 +16343,7 @@ while variables beginning with P and A (as well as CARAVAN, the target variable)
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>3693</pre>
+<pre>4000</pre>
 </div>
 
 </div>
@@ -16472,7 +16472,7 @@ For categorical columns we will use pd.get_dummies()</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>(5220, 3693)</pre>
+<pre>(5220, 4000)</pre>
 </div>
 
 </div>
@@ -17361,7 +17361,7 @@ For categorical columns we will use pd.get_dummies()</p>
     </tr>
   </tbody>
 </table>
-<p>8913 rows × 133 columns</p>
+<p>9220 rows × 133 columns</p>
 </div>
 </div>
 
@@ -17399,7 +17399,7 @@ For categorical columns we will use pd.get_dummies()</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>(8913, 5220, 3693)</pre>
+<pre>(9220, 5220, 4000)</pre>
 </div>
 
 </div>
@@ -17479,7 +17479,7 @@ For categorical columns we will use pd.get_dummies()</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>(8913, 5220, 3693)</pre>
+<pre>(9220, 5220, 4000)</pre>
 </div>
 
 </div>
@@ -17661,7 +17661,7 @@ Name: CARAVAN, dtype: int64</pre>
         <span class="n">under</span> <span class="o">=</span> <span class="n">RandomUnderSampler</span><span class="p">(</span><span class="n">sampling_strategy</span><span class="o">=</span><span class="n">under_rate</span><span class="p">)</span>
         <span class="n">X_train_under</span><span class="p">,</span> <span class="n">y_train_under</span> <span class="o">=</span> <span class="n">under</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">X_train_over</span><span class="p">,</span><span class="n">y_train_over</span><span class="p">)</span>
         
-        <span class="n">rforest</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+        <span class="n">rforest</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
         <span class="n">rforest</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_under</span><span class="p">,</span><span class="n">y_train_under</span><span class="p">)</span>
         <span class="n">y_pred</span> <span class="o">=</span> <span class="n">rforest</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;over: </span><span class="si">{</span><span class="n">over_rate</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> &amp; under: </span><span class="si">{</span><span class="n">under_rate</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> | score: </span><span class="si">{</span><span class="n">balanced_accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_pred</span><span class="p">)</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -17691,207 +17691,207 @@ Name: CARAVAN, dtype: int64</pre>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>over: 0.11 &amp; under: 0.81 | score: 0.6012
-over: 0.11 &amp; under: 0.82 | score: 0.6282
-over: 0.11 &amp; under: 0.83 | score: 0.6109
-over: 0.11 &amp; under: 0.84 | score: 0.6208
-over: 0.11 &amp; under: 0.85 | score: 0.6337
-over: 0.11 &amp; under: 0.86 | score: 0.6420
-over: 0.11 &amp; under: 0.87 | score: 0.6105
-over: 0.11 &amp; under: 0.88 | score: 0.6150
-over: 0.11 &amp; under: 0.89 | score: 0.6253
-over: 0.11 &amp; under: 0.90 | score: 0.6142
-over: 0.11 &amp; under: 0.91 | score: 0.6101
-over: 0.11 &amp; under: 0.92 | score: 0.6043
-over: 0.11 &amp; under: 0.93 | score: 0.6123
-over: 0.11 &amp; under: 0.94 | score: 0.6348
-over: 0.11 &amp; under: 0.95 | score: 0.6479
-over: 0.11 &amp; under: 0.96 | score: 0.6049
-over: 0.11 &amp; under: 0.97 | score: 0.6337
-over: 0.11 &amp; under: 0.98 | score: 0.6432
-over: 0.11 &amp; under: 0.99 | score: 0.6084
-over: 0.11 &amp; under: 1.00 | score: 0.6051
-over: 0.12 &amp; under: 0.81 | score: 0.6523
-over: 0.12 &amp; under: 0.82 | score: 0.5877
-over: 0.12 &amp; under: 0.83 | score: 0.5969
-over: 0.12 &amp; under: 0.84 | score: 0.6121
-over: 0.12 &amp; under: 0.85 | score: 0.6095
-over: 0.12 &amp; under: 0.86 | score: 0.5854
-over: 0.12 &amp; under: 0.87 | score: 0.5772
-over: 0.12 &amp; under: 0.88 | score: 0.5914
-over: 0.12 &amp; under: 0.89 | score: 0.5963
-over: 0.12 &amp; under: 0.90 | score: 0.6019
-over: 0.12 &amp; under: 0.91 | score: 0.6068
-over: 0.12 &amp; under: 0.92 | score: 0.6025
-over: 0.12 &amp; under: 0.93 | score: 0.6588
-over: 0.12 &amp; under: 0.94 | score: 0.6424
-over: 0.12 &amp; under: 0.95 | score: 0.6212
-over: 0.12 &amp; under: 0.96 | score: 0.6033
-over: 0.12 &amp; under: 0.97 | score: 0.6138
-over: 0.12 &amp; under: 0.98 | score: 0.6257
-over: 0.12 &amp; under: 0.99 | score: 0.6023
-over: 0.12 &amp; under: 1.00 | score: 0.6216
-over: 0.13 &amp; under: 0.81 | score: 0.5870
-over: 0.13 &amp; under: 0.82 | score: 0.5597
-over: 0.13 &amp; under: 0.83 | score: 0.6163
-over: 0.13 &amp; under: 0.84 | score: 0.5512
-over: 0.13 &amp; under: 0.85 | score: 0.5934
-over: 0.13 &amp; under: 0.86 | score: 0.5819
-over: 0.13 &amp; under: 0.87 | score: 0.6290
-over: 0.13 &amp; under: 0.88 | score: 0.5971
-over: 0.13 &amp; under: 0.89 | score: 0.6029
-over: 0.13 &amp; under: 0.90 | score: 0.5967
-over: 0.13 &amp; under: 0.91 | score: 0.6029
-over: 0.13 &amp; under: 0.92 | score: 0.5967
-over: 0.13 &amp; under: 0.93 | score: 0.5805
-over: 0.13 &amp; under: 0.94 | score: 0.6288
-over: 0.13 &amp; under: 0.95 | score: 0.6010
-over: 0.13 &amp; under: 0.96 | score: 0.6383
-over: 0.13 &amp; under: 0.97 | score: 0.6134
-over: 0.13 &amp; under: 0.98 | score: 0.6111
-over: 0.13 &amp; under: 0.99 | score: 0.6438
-over: 0.13 &amp; under: 1.00 | score: 0.5897
-over: 0.14 &amp; under: 0.81 | score: 0.5959
-over: 0.14 &amp; under: 0.82 | score: 0.5996
-over: 0.14 &amp; under: 0.83 | score: 0.5899
-over: 0.14 &amp; under: 0.84 | score: 0.5881
-over: 0.14 &amp; under: 0.85 | score: 0.6062
-over: 0.14 &amp; under: 0.86 | score: 0.5914
-over: 0.14 &amp; under: 0.87 | score: 0.5932
-over: 0.14 &amp; under: 0.88 | score: 0.5885
-over: 0.14 &amp; under: 0.89 | score: 0.6004
-over: 0.14 &amp; under: 0.90 | score: 0.6340
-over: 0.14 &amp; under: 0.91 | score: 0.6259
-over: 0.14 &amp; under: 0.92 | score: 0.5887
-over: 0.14 &amp; under: 0.93 | score: 0.6247
-over: 0.14 &amp; under: 0.94 | score: 0.6274
-over: 0.14 &amp; under: 0.95 | score: 0.6111
-over: 0.14 &amp; under: 0.96 | score: 0.6177
-over: 0.14 &amp; under: 0.97 | score: 0.6142
-over: 0.14 &amp; under: 0.98 | score: 0.5539
-over: 0.14 &amp; under: 0.99 | score: 0.6031
-over: 0.14 &amp; under: 1.00 | score: 0.6169
-over: 0.15 &amp; under: 0.81 | score: 0.5837
-over: 0.15 &amp; under: 0.82 | score: 0.6202
-over: 0.15 &amp; under: 0.83 | score: 0.5675
-over: 0.15 &amp; under: 0.84 | score: 0.5986
-over: 0.15 &amp; under: 0.85 | score: 0.5825
-over: 0.15 &amp; under: 0.86 | score: 0.5533
-over: 0.15 &amp; under: 0.87 | score: 0.5996
-over: 0.15 &amp; under: 0.88 | score: 0.5944
-over: 0.15 &amp; under: 0.89 | score: 0.6012
-over: 0.15 &amp; under: 0.90 | score: 0.5792
-over: 0.15 &amp; under: 0.91 | score: 0.5856
-over: 0.15 &amp; under: 0.92 | score: 0.6198
-over: 0.15 &amp; under: 0.93 | score: 0.5862
-over: 0.15 &amp; under: 0.94 | score: 0.6062
-over: 0.15 &amp; under: 0.95 | score: 0.5912
-over: 0.15 &amp; under: 0.96 | score: 0.5905
-over: 0.15 &amp; under: 0.97 | score: 0.5932
-over: 0.15 &amp; under: 0.98 | score: 0.5683
-over: 0.15 &amp; under: 0.99 | score: 0.6189
-over: 0.15 &amp; under: 1.00 | score: 0.6115
-over: 0.16 &amp; under: 0.81 | score: 0.6123
-over: 0.16 &amp; under: 0.82 | score: 0.5835
-over: 0.16 &amp; under: 0.83 | score: 0.5691
-over: 0.16 &amp; under: 0.84 | score: 0.5774
-over: 0.16 &amp; under: 0.85 | score: 0.5708
-over: 0.16 &amp; under: 0.86 | score: 0.6278
-over: 0.16 &amp; under: 0.87 | score: 0.5877
-over: 0.16 &amp; under: 0.88 | score: 0.6204
-over: 0.16 &amp; under: 0.89 | score: 0.5901
-over: 0.16 &amp; under: 0.90 | score: 0.5786
-over: 0.16 &amp; under: 0.91 | score: 0.6126
-over: 0.16 &amp; under: 0.92 | score: 0.5926
-over: 0.16 &amp; under: 0.93 | score: 0.5957
-over: 0.16 &amp; under: 0.94 | score: 0.5988
-over: 0.16 &amp; under: 0.95 | score: 0.6247
-over: 0.16 &amp; under: 0.96 | score: 0.5981
-over: 0.16 &amp; under: 0.97 | score: 0.5856
-over: 0.16 &amp; under: 0.98 | score: 0.6206
-over: 0.16 &amp; under: 0.99 | score: 0.6021
-over: 0.16 &amp; under: 1.00 | score: 0.5957
-over: 0.17 &amp; under: 0.81 | score: 0.5753
-over: 0.17 &amp; under: 0.82 | score: 0.5636
-over: 0.17 &amp; under: 0.83 | score: 0.6039
-over: 0.17 &amp; under: 0.84 | score: 0.6033
-over: 0.17 &amp; under: 0.85 | score: 0.5702
-over: 0.17 &amp; under: 0.86 | score: 0.5887
-over: 0.17 &amp; under: 0.87 | score: 0.5778
-over: 0.17 &amp; under: 0.88 | score: 0.5881
-over: 0.17 &amp; under: 0.89 | score: 0.6039
-over: 0.17 &amp; under: 0.90 | score: 0.5650
-over: 0.17 &amp; under: 0.91 | score: 0.6053
-over: 0.17 &amp; under: 0.92 | score: 0.6208
-over: 0.17 &amp; under: 0.93 | score: 0.5940
-over: 0.17 &amp; under: 0.94 | score: 0.6103
-over: 0.17 &amp; under: 0.95 | score: 0.6113
-over: 0.17 &amp; under: 0.96 | score: 0.5778
-over: 0.17 &amp; under: 0.97 | score: 0.5741
-over: 0.17 &amp; under: 0.98 | score: 0.6130
-over: 0.17 &amp; under: 0.99 | score: 0.5790
-over: 0.17 &amp; under: 1.00 | score: 0.5837
-over: 0.18 &amp; under: 0.81 | score: 0.5938
-over: 0.18 &amp; under: 0.82 | score: 0.5854
-over: 0.18 &amp; under: 0.83 | score: 0.5835
-over: 0.18 &amp; under: 0.84 | score: 0.6012
-over: 0.18 &amp; under: 0.85 | score: 0.5901
-over: 0.18 &amp; under: 0.86 | score: 0.6091
-over: 0.18 &amp; under: 0.87 | score: 0.5778
-over: 0.18 &amp; under: 0.88 | score: 0.5377
-over: 0.18 &amp; under: 0.89 | score: 0.6062
-over: 0.18 &amp; under: 0.90 | score: 0.5934
-over: 0.18 &amp; under: 0.91 | score: 0.6099
-over: 0.18 &amp; under: 0.92 | score: 0.5969
-over: 0.18 &amp; under: 0.93 | score: 0.5813
-over: 0.18 &amp; under: 0.94 | score: 0.5751
-over: 0.18 &amp; under: 0.95 | score: 0.5815
-over: 0.18 &amp; under: 0.96 | score: 0.6167
-over: 0.18 &amp; under: 0.97 | score: 0.5914
-over: 0.18 &amp; under: 0.98 | score: 0.6008
-over: 0.18 &amp; under: 0.99 | score: 0.5726
-over: 0.18 &amp; under: 1.00 | score: 0.5831
-over: 0.19 &amp; under: 0.81 | score: 0.5951
-over: 0.19 &amp; under: 0.82 | score: 0.6025
-over: 0.19 &amp; under: 0.83 | score: 0.5840
-over: 0.19 &amp; under: 0.84 | score: 0.5580
-over: 0.19 &amp; under: 0.85 | score: 0.5782
-over: 0.19 &amp; under: 0.86 | score: 0.6150
-over: 0.19 &amp; under: 0.87 | score: 0.5597
-over: 0.19 &amp; under: 0.88 | score: 0.5963
-over: 0.19 &amp; under: 0.89 | score: 0.5961
-over: 0.19 &amp; under: 0.90 | score: 0.6029
-over: 0.19 &amp; under: 0.91 | score: 0.5932
-over: 0.19 &amp; under: 0.92 | score: 0.6210
-over: 0.19 &amp; under: 0.93 | score: 0.5905
-over: 0.19 &amp; under: 0.94 | score: 0.5687
-over: 0.19 &amp; under: 0.95 | score: 0.5695
-over: 0.19 &amp; under: 0.96 | score: 0.5747
-over: 0.19 &amp; under: 0.97 | score: 0.5792
-over: 0.19 &amp; under: 0.98 | score: 0.6187
-over: 0.19 &amp; under: 0.99 | score: 0.5747
-over: 0.19 &amp; under: 1.00 | score: 0.5870
-over: 0.20 &amp; under: 0.81 | score: 0.5730
-over: 0.20 &amp; under: 0.82 | score: 0.5835
-over: 0.20 &amp; under: 0.83 | score: 0.6119
-over: 0.20 &amp; under: 0.84 | score: 0.5811
-over: 0.20 &amp; under: 0.85 | score: 0.5790
-over: 0.20 &amp; under: 0.86 | score: 0.5642
-over: 0.20 &amp; under: 0.87 | score: 0.6025
-over: 0.20 &amp; under: 0.88 | score: 0.5506
-over: 0.20 &amp; under: 0.89 | score: 0.5961
-over: 0.20 &amp; under: 0.90 | score: 0.5730
-over: 0.20 &amp; under: 0.91 | score: 0.5874
-over: 0.20 &amp; under: 0.92 | score: 0.5798
-over: 0.20 &amp; under: 0.93 | score: 0.5992
-over: 0.20 &amp; under: 0.94 | score: 0.5708
-over: 0.20 &amp; under: 0.95 | score: 0.5757
-over: 0.20 &amp; under: 0.96 | score: 0.5743
-over: 0.20 &amp; under: 0.97 | score: 0.5815
-over: 0.20 &amp; under: 0.98 | score: 0.5642
-over: 0.20 &amp; under: 0.99 | score: 0.6025
-over: 0.20 &amp; under: 1.00 | score: 0.6212
-75.39s
+<pre>over: 0.11 &amp; under: 0.81 | score: 0.6737
+over: 0.11 &amp; under: 0.82 | score: 0.6477
+over: 0.11 &amp; under: 0.83 | score: 0.6595
+over: 0.11 &amp; under: 0.84 | score: 0.6730
+over: 0.11 &amp; under: 0.85 | score: 0.6539
+over: 0.11 &amp; under: 0.86 | score: 0.6541
+over: 0.11 &amp; under: 0.87 | score: 0.6862
+over: 0.11 &amp; under: 0.88 | score: 0.6778
+over: 0.11 &amp; under: 0.89 | score: 0.6774
+over: 0.11 &amp; under: 0.90 | score: 0.6636
+over: 0.11 &amp; under: 0.91 | score: 0.6860
+over: 0.11 &amp; under: 0.92 | score: 0.6866
+over: 0.11 &amp; under: 0.93 | score: 0.7029
+over: 0.11 &amp; under: 0.94 | score: 0.6928
+over: 0.11 &amp; under: 0.95 | score: 0.6807
+over: 0.11 &amp; under: 0.96 | score: 0.6895
+over: 0.11 &amp; under: 0.97 | score: 0.6780
+over: 0.11 &amp; under: 0.98 | score: 0.6971
+over: 0.11 &amp; under: 0.99 | score: 0.6889
+over: 0.11 &amp; under: 1.00 | score: 0.6784
+over: 0.12 &amp; under: 0.81 | score: 0.6613
+over: 0.12 &amp; under: 0.82 | score: 0.6420
+over: 0.12 &amp; under: 0.83 | score: 0.6529
+over: 0.12 &amp; under: 0.84 | score: 0.6368
+over: 0.12 &amp; under: 0.85 | score: 0.6595
+over: 0.12 &amp; under: 0.86 | score: 0.6560
+over: 0.12 &amp; under: 0.87 | score: 0.6807
+over: 0.12 &amp; under: 0.88 | score: 0.6479
+over: 0.12 &amp; under: 0.89 | score: 0.6578
+over: 0.12 &amp; under: 0.90 | score: 0.6667
+over: 0.12 &amp; under: 0.91 | score: 0.6512
+over: 0.12 &amp; under: 0.92 | score: 0.6850
+over: 0.12 &amp; under: 0.93 | score: 0.6870
+over: 0.12 &amp; under: 0.94 | score: 0.6584
+over: 0.12 &amp; under: 0.95 | score: 0.6377
+over: 0.12 &amp; under: 0.96 | score: 0.6658
+over: 0.12 &amp; under: 0.97 | score: 0.6881
+over: 0.12 &amp; under: 0.98 | score: 0.6683
+over: 0.12 &amp; under: 0.99 | score: 0.6926
+over: 0.12 &amp; under: 1.00 | score: 0.6586
+over: 0.13 &amp; under: 0.81 | score: 0.6553
+over: 0.13 &amp; under: 0.82 | score: 0.6422
+over: 0.13 &amp; under: 0.83 | score: 0.6706
+over: 0.13 &amp; under: 0.84 | score: 0.6774
+over: 0.13 &amp; under: 0.85 | score: 0.6551
+over: 0.13 &amp; under: 0.86 | score: 0.6521
+over: 0.13 &amp; under: 0.87 | score: 0.6735
+over: 0.13 &amp; under: 0.88 | score: 0.6714
+over: 0.13 &amp; under: 0.89 | score: 0.6669
+over: 0.13 &amp; under: 0.90 | score: 0.6572
+over: 0.13 &amp; under: 0.91 | score: 0.6638
+over: 0.13 &amp; under: 0.92 | score: 0.6716
+over: 0.13 &amp; under: 0.93 | score: 0.6790
+over: 0.13 &amp; under: 0.94 | score: 0.6829
+over: 0.13 &amp; under: 0.95 | score: 0.6778
+over: 0.13 &amp; under: 0.96 | score: 0.6681
+over: 0.13 &amp; under: 0.97 | score: 0.6751
+over: 0.13 &amp; under: 0.98 | score: 0.6782
+over: 0.13 &amp; under: 0.99 | score: 0.6667
+over: 0.13 &amp; under: 1.00 | score: 0.6928
+over: 0.14 &amp; under: 0.81 | score: 0.6599
+over: 0.14 &amp; under: 0.82 | score: 0.6418
+over: 0.14 &amp; under: 0.83 | score: 0.6348
+over: 0.14 &amp; under: 0.84 | score: 0.6593
+over: 0.14 &amp; under: 0.85 | score: 0.6648
+over: 0.14 &amp; under: 0.86 | score: 0.6553
+over: 0.14 &amp; under: 0.87 | score: 0.6698
+over: 0.14 &amp; under: 0.88 | score: 0.6603
+over: 0.14 &amp; under: 0.89 | score: 0.6831
+over: 0.14 &amp; under: 0.90 | score: 0.6759
+over: 0.14 &amp; under: 0.91 | score: 0.6751
+over: 0.14 &amp; under: 0.92 | score: 0.6570
+over: 0.14 &amp; under: 0.93 | score: 0.6778
+over: 0.14 &amp; under: 0.94 | score: 0.6776
+over: 0.14 &amp; under: 0.95 | score: 0.6652
+over: 0.14 &amp; under: 0.96 | score: 0.6753
+over: 0.14 &amp; under: 0.97 | score: 0.6957
+over: 0.14 &amp; under: 0.98 | score: 0.6722
+over: 0.14 &amp; under: 0.99 | score: 0.6603
+over: 0.14 &amp; under: 1.00 | score: 0.6772
+over: 0.15 &amp; under: 0.81 | score: 0.6714
+over: 0.15 &amp; under: 0.82 | score: 0.6683
+over: 0.15 &amp; under: 0.83 | score: 0.6621
+over: 0.15 &amp; under: 0.84 | score: 0.7037
+over: 0.15 &amp; under: 0.85 | score: 0.6755
+over: 0.15 &amp; under: 0.86 | score: 0.6805
+over: 0.15 &amp; under: 0.87 | score: 0.6835
+over: 0.15 &amp; under: 0.88 | score: 0.6630
+over: 0.15 &amp; under: 0.89 | score: 0.6868
+over: 0.15 &amp; under: 0.90 | score: 0.6885
+over: 0.15 &amp; under: 0.91 | score: 0.6899
+over: 0.15 &amp; under: 0.92 | score: 0.7002
+over: 0.15 &amp; under: 0.93 | score: 0.6924
+over: 0.15 &amp; under: 0.94 | score: 0.6877
+over: 0.15 &amp; under: 0.95 | score: 0.6720
+over: 0.15 &amp; under: 0.96 | score: 0.7025
+over: 0.15 &amp; under: 0.97 | score: 0.6918
+over: 0.15 &amp; under: 0.98 | score: 0.6827
+over: 0.15 &amp; under: 0.99 | score: 0.6883
+over: 0.15 &amp; under: 1.00 | score: 0.6852
+over: 0.16 &amp; under: 0.81 | score: 0.6609
+over: 0.16 &amp; under: 0.82 | score: 0.6949
+over: 0.16 &amp; under: 0.83 | score: 0.6607
+over: 0.16 &amp; under: 0.84 | score: 0.6862
+over: 0.16 &amp; under: 0.85 | score: 0.6667
+over: 0.16 &amp; under: 0.86 | score: 0.6710
+over: 0.16 &amp; under: 0.87 | score: 0.6870
+over: 0.16 &amp; under: 0.88 | score: 0.6716
+over: 0.16 &amp; under: 0.89 | score: 0.6718
+over: 0.16 &amp; under: 0.90 | score: 0.6805
+over: 0.16 &amp; under: 0.91 | score: 0.6638
+over: 0.16 &amp; under: 0.92 | score: 0.6749
+over: 0.16 &amp; under: 0.93 | score: 0.6809
+over: 0.16 &amp; under: 0.94 | score: 0.6757
+over: 0.16 &amp; under: 0.95 | score: 0.6852
+over: 0.16 &amp; under: 0.96 | score: 0.6872
+over: 0.16 &amp; under: 0.97 | score: 0.6823
+over: 0.16 &amp; under: 0.98 | score: 0.6924
+over: 0.16 &amp; under: 0.99 | score: 0.6671
+over: 0.16 &amp; under: 1.00 | score: 0.6708
+over: 0.17 &amp; under: 0.81 | score: 0.6588
+over: 0.17 &amp; under: 0.82 | score: 0.6407
+over: 0.17 &amp; under: 0.83 | score: 0.6481
+over: 0.17 &amp; under: 0.84 | score: 0.6185
+over: 0.17 &amp; under: 0.85 | score: 0.6516
+over: 0.17 &amp; under: 0.86 | score: 0.6490
+over: 0.17 &amp; under: 0.87 | score: 0.6819
+over: 0.17 &amp; under: 0.88 | score: 0.6815
+over: 0.17 &amp; under: 0.89 | score: 0.6761
+over: 0.17 &amp; under: 0.90 | score: 0.6691
+over: 0.17 &amp; under: 0.91 | score: 0.6778
+over: 0.17 &amp; under: 0.92 | score: 0.6479
+over: 0.17 &amp; under: 0.93 | score: 0.6949
+over: 0.17 &amp; under: 0.94 | score: 0.6749
+over: 0.17 &amp; under: 0.95 | score: 0.6642
+over: 0.17 &amp; under: 0.96 | score: 0.6642
+over: 0.17 &amp; under: 0.97 | score: 0.6619
+over: 0.17 &amp; under: 0.98 | score: 0.6626
+over: 0.17 &amp; under: 0.99 | score: 0.6850
+over: 0.17 &amp; under: 1.00 | score: 0.6805
+over: 0.18 &amp; under: 0.81 | score: 0.6617
+over: 0.18 &amp; under: 0.82 | score: 0.6280
+over: 0.18 &amp; under: 0.83 | score: 0.6601
+over: 0.18 &amp; under: 0.84 | score: 0.6679
+over: 0.18 &amp; under: 0.85 | score: 0.6675
+over: 0.18 &amp; under: 0.86 | score: 0.6638
+over: 0.18 &amp; under: 0.87 | score: 0.6523
+over: 0.18 &amp; under: 0.88 | score: 0.6551
+over: 0.18 &amp; under: 0.89 | score: 0.6693
+over: 0.18 &amp; under: 0.90 | score: 0.6761
+over: 0.18 &amp; under: 0.91 | score: 0.6430
+over: 0.18 &amp; under: 0.92 | score: 0.6891
+over: 0.18 &amp; under: 0.93 | score: 0.6665
+over: 0.18 &amp; under: 0.94 | score: 0.6698
+over: 0.18 &amp; under: 0.95 | score: 0.6874
+over: 0.18 &amp; under: 0.96 | score: 0.6821
+over: 0.18 &amp; under: 0.97 | score: 0.6533
+over: 0.18 &amp; under: 0.98 | score: 0.6916
+over: 0.18 &amp; under: 0.99 | score: 0.6638
+over: 0.18 &amp; under: 1.00 | score: 0.6877
+over: 0.19 &amp; under: 0.81 | score: 0.6471
+over: 0.19 &amp; under: 0.82 | score: 0.6615
+over: 0.19 &amp; under: 0.83 | score: 0.6728
+over: 0.19 &amp; under: 0.84 | score: 0.6434
+over: 0.19 &amp; under: 0.85 | score: 0.6527
+over: 0.19 &amp; under: 0.86 | score: 0.6471
+over: 0.19 &amp; under: 0.87 | score: 0.6786
+over: 0.19 &amp; under: 0.88 | score: 0.6584
+over: 0.19 &amp; under: 0.89 | score: 0.6895
+over: 0.19 &amp; under: 0.90 | score: 0.6698
+over: 0.19 &amp; under: 0.91 | score: 0.6586
+over: 0.19 &amp; under: 0.92 | score: 0.6615
+over: 0.19 &amp; under: 0.93 | score: 0.6451
+over: 0.19 &amp; under: 0.94 | score: 0.6733
+over: 0.19 &amp; under: 0.95 | score: 0.6730
+over: 0.19 &amp; under: 0.96 | score: 0.6593
+over: 0.19 &amp; under: 0.97 | score: 0.6840
+over: 0.19 &amp; under: 0.98 | score: 0.6749
+over: 0.19 &amp; under: 0.99 | score: 0.6761
+over: 0.19 &amp; under: 1.00 | score: 0.6704
+over: 0.20 &amp; under: 0.81 | score: 0.6374
+over: 0.20 &amp; under: 0.82 | score: 0.6403
+over: 0.20 &amp; under: 0.83 | score: 0.6494
+over: 0.20 &amp; under: 0.84 | score: 0.6282
+over: 0.20 &amp; under: 0.85 | score: 0.6397
+over: 0.20 &amp; under: 0.86 | score: 0.6704
+over: 0.20 &amp; under: 0.87 | score: 0.6650
+over: 0.20 &amp; under: 0.88 | score: 0.6344
+over: 0.20 &amp; under: 0.89 | score: 0.6597
+over: 0.20 &amp; under: 0.90 | score: 0.6426
+over: 0.20 &amp; under: 0.91 | score: 0.6706
+over: 0.20 &amp; under: 0.92 | score: 0.6977
+over: 0.20 &amp; under: 0.93 | score: 0.6681
+over: 0.20 &amp; under: 0.94 | score: 0.6687
+over: 0.20 &amp; under: 0.95 | score: 0.6591
+over: 0.20 &amp; under: 0.96 | score: 0.6333
+over: 0.20 &amp; under: 0.97 | score: 0.6566
+over: 0.20 &amp; under: 0.98 | score: 0.6570
+over: 0.20 &amp; under: 0.99 | score: 0.6975
+over: 0.20 &amp; under: 1.00 | score: 0.6885
+53.38s
 </pre>
 </div>
 </div>
@@ -17928,7 +17928,7 @@ over: 0.20 &amp; under: 1.00 | score: 0.6212
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>(0.12, 0.93, 0.6588477366255143)</pre>
+<pre>(0.15, 0.84, 0.7037037037037037)</pre>
 </div>
 
 </div>
@@ -18091,7 +18091,7 @@ over: 0.20 &amp; under: 1.00 | score: 0.6212
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>0.6897119341563787</pre>
+<pre>0.7045267489711935</pre>
 </div>
 
 </div>
@@ -18178,13 +18178,13 @@ over: 0.20 &amp; under: 1.00 | score: 0.6212
   <tbody>
     <tr>
       <th>0</th>
-      <td>920</td>
-      <td>295</td>
+      <td>929</td>
+      <td>286</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>34</td>
-      <td>56</td>
+      <td>32</td>
+      <td>58</td>
     </tr>
   </tbody>
 </table>
@@ -18269,106 +18269,106 @@ over: 0.20 &amp; under: 1.00 | score: 0.6212
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>1/100 | score: 0.7091 | time: 10.06s
-2/100 | score: 0.6809 | time: 12.97s
-3/100 | score: 0.7041 | time: 17.65s
-4/100 | score: 0.6364 | time: 26.52s
-5/100 | score: 0.6959 | time: 26.99s
-6/100 | score: 0.6580 | time: 27.57s
-7/100 | score: 0.6761 | time: 31.13s
-8/100 | score: 0.6354 | time: 35.01s
-9/100 | score: 0.7010 | time: 42.63s
-10/100 | score: 0.6218 | time: 47.88s
-11/100 | score: 0.6648 | time: 51.21s
-12/100 | score: 0.6146 | time: 51.99s
-13/100 | score: 0.6535 | time: 69.42s
-14/100 | score: 0.6469 | time: 74.00s
-15/100 | score: 0.6525 | time: 84.10s
-16/100 | score: 0.6531 | time: 89.71s
-17/100 | score: 0.6683 | time: 91.89s
-18/100 | score: 0.6346 | time: 104.67s
-19/100 | score: 0.6621 | time: 112.95s
-20/100 | score: 0.6189 | time: 121.83s
-21/100 | score: 0.7082 | time: 131.52s
-22/100 | score: 0.6348 | time: 136.52s
-23/100 | score: 0.6975 | time: 136.70s
-24/100 | score: 0.6595 | time: 139.22s
-25/100 | score: 0.6224 | time: 148.04s
-26/100 | score: 0.6516 | time: 160.79s
-27/100 | score: 0.6665 | time: 172.32s
-28/100 | score: 0.6644 | time: 174.47s
-29/100 | score: 0.7066 | time: 176.57s
-30/100 | score: 0.6757 | time: 179.30s
-31/100 | score: 0.6160 | time: 184.27s
-32/100 | score: 0.6274 | time: 185.92s
-33/100 | score: 0.6588 | time: 189.19s
-34/100 | score: 0.6728 | time: 190.55s
-35/100 | score: 0.6570 | time: 202.95s
-36/100 | score: 0.6936 | time: 204.87s
-37/100 | score: 0.7029 | time: 207.01s
-38/100 | score: 0.6981 | time: 209.13s
-39/100 | score: 0.6488 | time: 218.90s
-40/100 | score: 0.6895 | time: 222.87s
-41/100 | score: 0.6379 | time: 223.87s
-42/100 | score: 0.6986 | time: 224.64s
-43/100 | score: 0.6549 | time: 225.94s
-44/100 | score: 0.6286 | time: 226.87s
-45/100 | score: 0.6650 | time: 228.10s
-46/100 | score: 0.6469 | time: 234.05s
-47/100 | score: 0.6977 | time: 240.65s
-48/100 | score: 0.6218 | time: 244.65s
-49/100 | score: 0.7041 | time: 245.08s
-50/100 | score: 0.6730 | time: 250.30s
-51/100 | score: 0.6973 | time: 258.34s
-52/100 | score: 0.7014 | time: 260.80s
-53/100 | score: 0.6969 | time: 262.83s
-54/100 | score: 0.6547 | time: 266.15s
-55/100 | score: 0.6181 | time: 269.33s
-56/100 | score: 0.6835 | time: 273.08s
-57/100 | score: 0.6833 | time: 277.67s
-58/100 | score: 0.6488 | time: 286.01s
-59/100 | score: 0.5979 | time: 286.81s
-60/100 | score: 0.6356 | time: 289.67s
-61/100 | score: 0.6385 | time: 296.07s
-62/100 | score: 0.6899 | time: 296.33s
-63/100 | score: 0.6969 | time: 303.22s
-64/100 | score: 0.6113 | time: 305.37s
-65/100 | score: 0.6809 | time: 310.18s
-66/100 | score: 0.6296 | time: 312.13s
-67/100 | score: 0.7041 | time: 312.96s
-68/100 | score: 0.6461 | time: 325.49s
-69/100 | score: 0.6763 | time: 328.32s
-70/100 | score: 0.7111 | time: 331.89s
-71/100 | score: 0.6755 | time: 334.23s
-72/100 | score: 0.6510 | time: 335.88s
-73/100 | score: 0.6767 | time: 341.95s
-74/100 | score: 0.6463 | time: 345.02s
-75/100 | score: 0.6650 | time: 363.93s
-76/100 | score: 0.6753 | time: 365.59s
-77/100 | score: 0.6251 | time: 366.30s
-78/100 | score: 0.6595 | time: 383.36s
-79/100 | score: 0.6973 | time: 390.16s
-80/100 | score: 0.7041 | time: 393.34s
-81/100 | score: 0.6720 | time: 399.27s
-82/100 | score: 0.6267 | time: 410.08s
-83/100 | score: 0.6422 | time: 417.31s
-84/100 | score: 0.6597 | time: 424.80s
-85/100 | score: 0.7053 | time: 426.74s
-86/100 | score: 0.6965 | time: 428.01s
-87/100 | score: 0.6936 | time: 428.80s
-88/100 | score: 0.6665 | time: 429.11s
-89/100 | score: 0.6582 | time: 430.70s
-90/100 | score: 0.6704 | time: 435.77s
-91/100 | score: 0.6885 | time: 441.25s
-92/100 | score: 0.6591 | time: 449.15s
-93/100 | score: 0.6512 | time: 456.84s
-94/100 | score: 0.6377 | time: 466.49s
-95/100 | score: 0.6165 | time: 468.52s
-96/100 | score: 0.6868 | time: 474.94s
-97/100 | score: 0.5811 | time: 476.74s
-98/100 | score: 0.6942 | time: 479.16s
-99/100 | score: 0.6656 | time: 480.98s
-100/100 | score: 0.6387 | time: 483.78s
+<pre>1/100 | score: 0.5981 | time: 6.43s
+2/100 | score: 0.6720 | time: 12.46s
+3/100 | score: 0.6029 | time: 16.20s
+4/100 | score: 0.7062 | time: 19.90s
+5/100 | score: 0.6473 | time: 22.52s
+6/100 | score: 0.6247 | time: 44.32s
+7/100 | score: 0.6335 | time: 64.94s
+8/100 | score: 0.6117 | time: 66.86s
+9/100 | score: 0.6263 | time: 68.71s
+10/100 | score: 0.6794 | time: 73.59s
+11/100 | score: 0.6173 | time: 75.34s
+12/100 | score: 0.6352 | time: 80.50s
+13/100 | score: 0.6177 | time: 84.80s
+14/100 | score: 0.7041 | time: 85.77s
+15/100 | score: 0.6117 | time: 107.81s
+16/100 | score: 0.6193 | time: 131.38s
+17/100 | score: 0.7183 | time: 132.02s
+18/100 | score: 0.6364 | time: 132.56s
+19/100 | score: 0.6395 | time: 140.49s
+20/100 | score: 0.6796 | time: 142.15s
+21/100 | score: 0.6239 | time: 148.56s
+22/100 | score: 0.6383 | time: 149.94s
+23/100 | score: 0.6486 | time: 152.89s
+24/100 | score: 0.6321 | time: 155.41s
+25/100 | score: 0.5292 | time: 156.20s
+26/100 | score: 0.7041 | time: 160.29s
+27/100 | score: 0.5947 | time: 161.79s
+28/100 | score: 0.6512 | time: 162.47s
+29/100 | score: 0.6551 | time: 169.35s
+30/100 | score: 0.7041 | time: 171.90s
+31/100 | score: 0.6056 | time: 194.13s
+32/100 | score: 0.6693 | time: 205.41s
+33/100 | score: 0.6397 | time: 207.85s
+34/100 | score: 0.6016 | time: 214.45s
+35/100 | score: 0.6220 | time: 221.92s
+36/100 | score: 0.6099 | time: 224.25s
+37/100 | score: 0.6004 | time: 226.36s
+38/100 | score: 0.7002 | time: 229.88s
+39/100 | score: 0.6037 | time: 231.09s
+40/100 | score: 0.6642 | time: 232.02s
+41/100 | score: 0.7041 | time: 234.07s
+42/100 | score: 0.6846 | time: 235.94s
+43/100 | score: 0.7004 | time: 240.57s
+44/100 | score: 0.6008 | time: 247.33s
+45/100 | score: 0.6389 | time: 256.82s
+46/100 | score: 0.7051 | time: 260.32s
+47/100 | score: 0.6342 | time: 264.92s
+48/100 | score: 0.6961 | time: 272.92s
+49/100 | score: 0.6438 | time: 274.45s
+50/100 | score: 0.7105 | time: 279.11s
+51/100 | score: 0.6298 | time: 290.00s
+52/100 | score: 0.6012 | time: 293.18s
+53/100 | score: 0.6270 | time: 300.46s
+54/100 | score: 0.6395 | time: 305.96s
+55/100 | score: 0.6903 | time: 310.54s
+56/100 | score: 0.6809 | time: 315.02s
+57/100 | score: 0.6519 | time: 320.93s
+58/100 | score: 0.5815 | time: 326.09s
+59/100 | score: 0.6115 | time: 327.87s
+60/100 | score: 0.6290 | time: 332.89s
+61/100 | score: 0.6722 | time: 333.09s
+62/100 | score: 0.6519 | time: 347.79s
+63/100 | score: 0.6949 | time: 349.10s
+64/100 | score: 0.5831 | time: 350.25s
+65/100 | score: 0.6113 | time: 351.75s
+66/100 | score: 0.6566 | time: 362.72s
+67/100 | score: 0.6016 | time: 369.71s
+68/100 | score: 0.5992 | time: 371.51s
+69/100 | score: 0.6595 | time: 381.92s
+70/100 | score: 0.6263 | time: 387.28s
+71/100 | score: 0.6346 | time: 400.20s
+72/100 | score: 0.6183 | time: 400.51s
+73/100 | score: 0.5909 | time: 402.46s
+74/100 | score: 0.6403 | time: 405.39s
+75/100 | score: 0.6249 | time: 420.18s
+76/100 | score: 0.6619 | time: 437.15s
+77/100 | score: 0.6150 | time: 446.54s
+78/100 | score: 0.7136 | time: 456.97s
+79/100 | score: 0.6827 | time: 460.76s
+80/100 | score: 0.7049 | time: 461.36s
+81/100 | score: 0.6665 | time: 465.25s
+82/100 | score: 0.6815 | time: 480.92s
+83/100 | score: 0.6514 | time: 506.77s
+84/100 | score: 0.5986 | time: 508.93s
+85/100 | score: 0.5796 | time: 509.75s
+86/100 | score: 0.6444 | time: 520.69s
+87/100 | score: 0.7041 | time: 521.25s
+88/100 | score: 0.6097 | time: 523.60s
+89/100 | score: 0.6037 | time: 546.26s
+90/100 | score: 0.6230 | time: 562.13s
+91/100 | score: 0.6652 | time: 570.93s
+92/100 | score: 0.6819 | time: 575.29s
+93/100 | score: 0.7041 | time: 577.51s
+94/100 | score: 0.6284 | time: 583.04s
+95/100 | score: 0.7060 | time: 586.08s
+96/100 | score: 0.6179 | time: 588.10s
+97/100 | score: 0.6171 | time: 593.51s
+98/100 | score: 0.6461 | time: 596.79s
+99/100 | score: 0.6708 | time: 599.40s
+100/100 | score: 0.6206 | time: 611.52s
 </pre>
 </div>
 </div>
@@ -18382,7 +18382,7 @@ over: 0.20 &amp; under: 1.00 | score: 0.6212
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>(0.7111111111111111, 10, 97, 3, 69)</pre>
+<pre>(0.7183127572016461, 2, 82, 3, 43)</pre>
 </div>
 
 </div>
@@ -18420,7 +18420,7 @@ over: 0.20 &amp; under: 1.00 | score: 0.6212
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>0.7081637107776262
+<pre>0.7119918144611187
 </pre>
 </div>
 </div>
@@ -18434,7 +18434,7 @@ over: 0.20 &amp; under: 1.00 | score: 0.6212
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>0.7111111111111111</pre>
+<pre>0.7183127572016461</pre>
 </div>
 
 </div>
@@ -18471,7 +18471,7 @@ over: 0.20 &amp; under: 1.00 | score: 0.6212
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>(0.7111111111111111, 10, 97, 3, 69)</pre>
+<pre>(0.7183127572016461, 2, 82, 3, 43)</pre>
 </div>
 
 </div>
@@ -18555,8 +18555,8 @@ I'll compare now these results with <code>RandomSearchCV</code>.</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Best params:{&#39;n_estimators&#39;: 80, &#39;max_features&#39;: 1, &#39;max_depth&#39;: 16}
-Time: 219.79s
+<pre>Best params:{&#39;n_estimators&#39;: 120, &#39;max_features&#39;: 31, &#39;max_depth&#39;: 18}
+Time: 260.16s
 </pre>
 </div>
 </div>
@@ -18570,7 +18570,7 @@ Time: 219.79s
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>0.5794238683127573</pre>
+<pre>0.5903292181069959</pre>
 </div>
 
 </div>
@@ -18607,7 +18607,7 @@ Time: 219.79s
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>(0.7111111111111111, 10, 97, 3, 69)</pre>
+<pre>(0.7183127572016461, 2, 82, 3, 43)</pre>
 </div>
 
 </div>
@@ -18651,8 +18651,8 @@ Time: 219.79s
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>0.7081637107776262
-0.7111111111111111
+<pre>0.7119918144611187
+0.7183127572016461
 </pre>
 </div>
 </div>
@@ -18718,13 +18718,13 @@ Time: 219.79s
   <tbody>
     <tr>
       <th>0</th>
-      <td>864</td>
-      <td>351</td>
+      <td>922</td>
+      <td>293</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>26</td>
-      <td>64</td>
+      <td>29</td>
+      <td>61</td>
     </tr>
   </tbody>
 </table>
@@ -18767,7 +18767,7 @@ Time: 219.79s
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>0.9004611186903138
+<pre>0.9379263301500682
 </pre>
 </div>
 </div>
@@ -18781,7 +18781,7 @@ Time: 219.79s
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>0.5794238683127573</pre>
+<pre>0.5903292181069959</pre>
 </div>
 
 </div>
@@ -18847,13 +18847,13 @@ Time: 219.79s
   <tbody>
     <tr>
       <th>0</th>
-      <td>949</td>
-      <td>266</td>
+      <td>1016</td>
+      <td>199</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>56</td>
-      <td>34</td>
+      <td>59</td>
+      <td>31</td>
     </tr>
   </tbody>
 </table>
@@ -18919,7 +18919,7 @@ Time: 219.79s
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>(3693, 133)</pre>
+<pre>(4000, 133)</pre>
 </div>
 
 </div>
@@ -18970,7 +18970,7 @@ Time: 219.79s
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>array([0, 1, 1, ..., 1, 1, 0])</pre>
+<pre>array([0, 1, 1, ..., 1, 0, 0])</pre>
 </div>
 
 </div>
@@ -19186,7 +19186,7 @@ Time: 219.79s
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[89]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;dm_competition2_[bela_j_szekeres]_submission[1].txt&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;dm_competition2_Bela_J_Szekeres_submission1.txt&quot;</span>
 </pre></div>
 
      </div>
@@ -19312,8 +19312,8 @@ Time: 219.79s
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Best params:{&#39;subsample&#39;: 0.9, &#39;min_child_weight&#39;: 5, &#39;max_depth&#39;: 2, &#39;gamma&#39;: 1, &#39;colsample_bytree&#39;: 0.7}
-Time: 7.71s
+<pre>Best params:{&#39;subsample&#39;: 0.9, &#39;min_child_weight&#39;: 7, &#39;max_depth&#39;: 2, &#39;gamma&#39;: 0.8, &#39;colsample_bytree&#39;: 0.8}
+Time: 7.21s
 </pre>
 </div>
 </div>
@@ -19327,7 +19327,7 @@ Time: 7.71s
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>0.6779835390946503</pre>
+<pre>0.6458847736625515</pre>
 </div>
 
 </div>
@@ -19365,7 +19365,7 @@ Time: 7.71s
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>0.7759890859481583</pre>
+<pre>0.8025457025920874</pre>
 </div>
 
 </div>
@@ -19464,7 +19464,7 @@ Time: 7.71s
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>0.5454944589111609</pre>
+<pre>0.5448577638658227</pre>
 </div>
 
 </div>
@@ -19572,31 +19572,31 @@ Time: 7.71s
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>1/25 | score: 0.5561 | time: 3.37s
-2/25 | score: 0.5612 | time: 7.42s
-3/25 | score: 0.5541 | time: 10.03s
-4/25 | score: 0.5517 | time: 16.74s
-5/25 | score: 0.5564 | time: 21.69s
-6/25 | score: 0.5552 | time: 22.32s
-7/25 | score: 0.5442 | time: 28.24s
-8/25 | score: 0.5594 | time: 32.80s
-9/25 | score: 0.5549 | time: 35.46s
-10/25 | score: 0.5594 | time: 36.98s
-11/25 | score: 0.5458 | time: 40.67s
-12/25 | score: 0.5607 | time: 44.89s
-13/25 | score: 0.5574 | time: 48.60s
-14/25 | score: 0.5653 | time: 49.46s
-15/25 | score: 0.5556 | time: 50.56s
-16/25 | score: 0.5565 | time: 56.36s
-17/25 | score: 0.5611 | time: 56.70s
-18/25 | score: 0.5621 | time: 61.48s
-19/25 | score: 0.5586 | time: 63.79s
-20/25 | score: 0.5555 | time: 69.27s
-21/25 | score: 0.5566 | time: 71.69s
-22/25 | score: 0.5678 | time: 73.69s
-23/25 | score: 0.5594 | time: 77.29s
-24/25 | score: 0.5547 | time: 80.39s
-25/25 | score: 0.5604 | time: 83.39s
+<pre>1/25 | score: 0.5607 | time: 5.82s
+2/25 | score: 0.5624 | time: 9.77s
+3/25 | score: 0.5642 | time: 14.46s
+4/25 | score: 0.5566 | time: 15.54s
+5/25 | score: 0.5590 | time: 19.33s
+6/25 | score: 0.5617 | time: 19.74s
+7/25 | score: 0.5601 | time: 20.34s
+8/25 | score: 0.5513 | time: 27.06s
+9/25 | score: 0.5652 | time: 31.71s
+10/25 | score: 0.5510 | time: 37.65s
+11/25 | score: 0.5622 | time: 41.13s
+12/25 | score: 0.5690 | time: 42.91s
+13/25 | score: 0.5610 | time: 46.56s
+14/25 | score: 0.5479 | time: 53.69s
+15/25 | score: 0.5593 | time: 57.19s
+16/25 | score: 0.5626 | time: 58.44s
+17/25 | score: 0.5540 | time: 62.63s
+18/25 | score: 0.5488 | time: 63.77s
+19/25 | score: 0.5500 | time: 66.13s
+20/25 | score: 0.5653 | time: 68.00s
+21/25 | score: 0.5524 | time: 68.19s
+22/25 | score: 0.5502 | time: 68.80s
+23/25 | score: 0.5601 | time: 71.63s
+24/25 | score: 0.5586 | time: 76.94s
+25/25 | score: 0.5576 | time: 80.62s
 
 Unfortunately, this strategy didn&#39;t worked well here.
 </pre>
@@ -19612,7 +19612,7 @@ Unfortunately, this strategy didn&#39;t worked well here.
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>0.567843631778058</pre>
+<pre>0.5689825757159347</pre>
 </div>
 
 </div>
@@ -19647,7 +19647,7 @@ Unfortunately, this strategy didn&#39;t worked well here.
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[99]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;dm_competition2_[bela_j_szekeres]_submission[2].txt&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;dm_competition2_Bela_J_Szekeres_submission2.txt&quot;</span>
 </pre></div>
 
      </div>
