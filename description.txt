@@ -1,0 +1,77 @@
++----------------------------------------------------------------------+
+| My Submissions:                                                      |
++----------------------------------------------------------------------+
+
++--------------------+
+| Boosting models    |
++--------------------+
+  Short description:
+----------------------
+
+XGBoost. I used a 3-phase random search:
+In each phase, I trained the model using a larger and larger training 
+set, in a parameter space that was narrowed by the few best models 
+in each phase.
+
+ Submitted files:
+------------------
+xgb-v2.html
+
+URL:
+------------------
+https://www.kaggle.com/code/szbela87/xgb-v2
+
+ Public score:
+------------------
+0.93400
+
++--------------------+
+| Freestyle category |
++--------------------+
+ Short description:
+--------------------
+
+A Convolutional Neural Network with exponential learning rate
+decay, and optimal step size search (in Adam optimizer). 
+
+ Submitted files:
+------------------
+cnn-final.html
+
+ URL:
+------------------
+https://www.kaggle.com/code/szbela87/cnn-final
+
+ Public score:
+------------------
+0.97320
+
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+I also attached a screenshot about my scores:
+screenshot.png
+
++----------------------------------------------------------------------+
+|                              TASK                                    |
++----------------------------------------------------------------------+
+
+https://www.kaggle.com/c/Kannada-MNIST
+Rules: NO PREPROCESSING, ONLY MODEL TUNING. 
+In this competition you can not modify the data 
+(only division by 255 is allowed). 
+You have to focus on model choice and hiperparameter optimization.
+
+Categories: 
+- Boosting models
+- Freestyle
+
+Submission: You have to submit your Kaggle score and your notebook 
+(like in the first competition). You will be ranked based on your 
+evaluation score on Kaggle. In this competition you have to sumbit 
+through a Kernel on Kaggle. In case you are not familiar with this 
+method we will go through the process tomorrow during practice.
+Deadline (one extra week, because no classes March 26th): 
+	
+Work in progress: March 30th
+	
+Final: April 6th
