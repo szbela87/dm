@@ -1,0 +1,49 @@
+Competition 4
+
+Goal: prediction of the Prognosis column
+Evaluation metric: balanced accuracy
+
+Subcompetition 1: use SVM for the prediction (you can use other models for data imputation)
+Subcompetition 2: freeform
+
+DATA DESCRIPTION
+Predict the severity of COVID-19 in patients of Italian hospitals. The data is collected from 6 hospitals. Chest X-ray images are provided for each patient, which are collected in imgs.npy. Usage of the images are not required for either competition, but it is allowed.
+
+------------------------------------------------
+Age				Patient’s age (years)
+
+Sex				Patient’s sex (0 – male, 1 – female)
+
+Body Temperature (°C)		Patient temperature at admission (in °C)
+
+Cough				Cough
+
+Dyspnea				Patient had intense tightening in the chest, air hunger, difficulty breathing, breathlessness or feeling of suffocation
+
+WBC				White blood cells count (10^9/L)
+
+CRP				C-reactive protein concentration (mg/dL)
+
+Fibrinogen			Fibrinogen concentration in blood (mg/dL)
+
+LDH				Lactate dehydrogenase concentration in blood (U/L)
+
+D-dimer				D-dimer amount in blood
+
+O2				Oxygen percentage in blood
+
+PaO2				Partial pressure of of oxygen in arterial blood (mmHg)
+
+SaO2				Arterial oxygen saturation (%)
+
+pH				Blood pH
+
+Cardiovascular Disease		Patient had cardiovascular disease
+
+Respiratory Failure		Patient had respiratory failure
+
+Image				Index of corresponding image in imgs.npy (starting from 0)
+
+Death				Whether the patient died (not provided in test column)
+
+Prognosis			Severity of COVID

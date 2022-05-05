@@ -1,0 +1,21 @@
+Uploaded files:
+
+Submission files:
+-----------------
+-----------------
+dm_competition4_BelaJSzekeres_submission1.txt - 1st subcompetition
+dm_competition4_BelaJSzekeres_submission2.txt - 2nd subcompetition
+
+Notebooks:
+----------
+----------
+
+1st subcompetition: dm_hw4_bjszekeres_comp1.html 
+-------------------
+Method: Linear SVM with fine tuning for C.
+
+2nd subcompetition: dm_hw4_bjszekeres_comp2.html
+-------------------
+Method: Mixed Convolutional and Tabular (DL) model with
+pretrained Resnet18 network and optimal weight_decay search for
+the L2 regularization.
